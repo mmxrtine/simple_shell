@@ -8,7 +8,6 @@
 #include <sys/wait.h>
 
 void display_prompt(void);
-void user_input(char *command, size_t size);
 void execute_command(const char *prompt);
 void _printf(const char *string);
 void read_command(char *string, size_t length);

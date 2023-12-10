@@ -7,7 +7,7 @@ int main()
 	while (1)
 	{
 		display_prompt();
-		user_input(command, sizeof(command));
+		read_command(command, sizeof(command));
         	execute_command(command);
 	}
 }
