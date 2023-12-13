@@ -10,4 +10,5 @@ int main()
 		read_command(command, sizeof(command));
         	execute_command(command);
 	}
+	return (0);
 }
