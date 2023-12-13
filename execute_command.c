@@ -12,8 +12,21 @@ void execute_command(const char *prompt)
 
 	else if (child_pid == 0) /*child process*/
 	{
-		execlp(prompt, prompt, (char *)NULL);
-		perror("execlp");
+		/* construct full path */
+		char *path[100];
+		int path_count = 0;
+
+		char *token = strtok((char *)prompt, " ");
+		while (token != NULL && path_count < 99)
+		{
+			path[path_count++] = token;
+			token = strtok(NULL, " ");
+		}
+		path[path_count] = NULL;
+
+		execvp(path[0], path);
+
+		perror("execvp");
 		exit(EXIT_FAILURE);
 	}
 
